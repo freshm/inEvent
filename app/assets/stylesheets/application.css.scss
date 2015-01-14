@@ -1,0 +1,230 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *
+ *= require bootstrap/dist/css/bootstrap
+ *= require bootstrap-social/bootstrap-social.css
+ *= require font-awesome/css/font-awesome.min.css
+ *= require metro-bootstrap.min.css
+ *= require_tree .
+ *= require_self
+ */
+
+.nav-link {
+  color: white;
+  text-decoration: underline;
+  
+  &:hover {
+    color: #DDD;
+  }
+}
+
+#landing_page {
+  background-image: url("/landing_page_pic.jpg");
+  background-repeat:no-repeat;
+  background-size:1920px 1080px;
+ }
+
+.landing-text {
+  color: white;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  
+  h1 {
+    font-size: 62px;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 30px;
+  }
+}
+
+#footer {position: relative;
+  background-color: white;
+  position: relative;
+  bottom: 0;
+  height: 35px;
+  width: 100%;
+  border-color: #999;
+  border-top-style: solid;
+  border-top-width: 1px;
+
+  #links {
+    position: relative;
+    top: 25%;
+    float: right;
+    padding-right: 15px;
+
+    a {
+      padding: 0 5px;
+    }
+  }
+}
+
+.container {
+  padding-top: 50px
+}
+
+.event-card {
+  border-style: solid;
+  border-color: #999;
+  border-width: 1px;
+  margin-bottom: 2px;
+}
+
+.sidebar {
+  border-style: solid;
+  border-color: #999;
+  border-width: 1px;
+}
+
+.event-bottom {
+  margin-top: 30px;
+  border-color: #999;
+  border-width: 1px;
+  border-style: solid;
+  height: 200px;
+}
+
+#authentication_form {
+	padding-top: 3px;
+	padding-bottom: 30px;
+	border-style: solid;
+	border-color: #999;
+	border-width: 1px;
+
+	#registration_link {
+		padding-left: 5px;
+	}
+
+  hr {
+    border-color: #AAA;
+  }
+
+	.divider {
+	    width:500px;
+	    text-align:center;
+	}
+
+	.divider hr {
+		border-color: black;
+	    margin-left:auto;
+	    margin-right:auto;
+	    width:40%;
+
+	}
+
+	.left {
+	    float:left;
+	}
+
+	.right {
+	    float:right;
+	}
+
+	.policy {
+		font-size: 12px;
+		text-align: center;
+	}
+}
+
+.center_text {
+	text-align: center;
+}
+
+
+
+.navbar-default .navbar-text {
+	color: #FFF;
+}
+
+#logout {
+	margin-right: 30px;
+
+}
+
+.alert-box {
+  height: 47px;
+  width: 50%;
+  margin: 0 auto 10px auto;
+  position: fixed;
+  left: 25%;
+}
+
+.horiontal-or {
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.social a:hover {
+  color: #fff;
+}
+
+.form-error {
+
+  border-color: #7F0000;
+  border-width: 1px;
+  border-style: solid;
+  color: #7F0000;
+
+  h2 {
+    font-size: 16px;    
+  }
+}
+
+.profile_name {
+  font-weight: bold;
+  a:hover {
+    text-decoration: none; 
+  }
+}
+
+.user_information {
+  span {
+    padding-left: 6px;
+  }
+}
+
+.cancel {
+  margin-left: 17.5px;
+}
+
+.social-button {
+  font-size: 36px !important;
+  margin-top: 6px !important;
+}
+
+.btn-social-icon{
+  height: 46px !important;
+  width: 46px !important;
+}
+
+@media only screen and (min-device-width: 768px){
+  .navbar .divider-vertical {
+    height: 25px;
+    margin-top: 13px;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid #f2f2f2;
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  .new-line {
+    hr {
+      display: none;
+    }
+  }
+
+  #footer {
+    display: none;
+  }
+}

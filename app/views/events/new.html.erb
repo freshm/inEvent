@@ -1,0 +1,34 @@
+<div class="row">
+  <h2>Event erstellen</h2>
+  <% if @event.errors.any? %>
+    <div class="row">
+      <div class="alert alert-danger col-md-offset-3 col-md-6">
+        <span style="float: left;" class="fa fa-exclamation-triangle" aria-hidden="true"></span>
+        <ul>
+          <% @event.errors.each do |e| %>
+            <li><%= t "custom_translations.#{e}" %> muss ausgefüllt sein.</li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <%= form_for @event, class: "form-control" ,url: {action: "create"} do |f| %>
+    <div class="form-group"><%= f.text_field :title, autofocus: true, placeholder: "Titel", class: "form-control" %></div>
+    <div class="form-group"><%= f.text_field :appointment, placeholder: "Datum", class: "form-control", id: "datepicker" %></div>
+    <div class="form-group"><%= f.text_field :location, placeholder: "Ort", class: "form-control" %></div>
+    <div class="form-group"><%= f.number_field :max_participants, placeholder: "Maximale Teilnehmer", class: "form-control" %></div>
+    <div class="form-group"><%= f.file_field :picture, placeholder: "Eventbild" %></div>
+    <div class="form-group">
+      <%= f.text_area :description, placeholder: "Beschreibung", class: "form-control", rows: 5 %>
+    </div>
+    
+    <div class="boxcheck">
+      <label>
+        <%= f.check_box :private %> Privat
+      </label>
+    </div>
+
+    <br />
+    <%= f.submit "Event erstellen", class: "btn btn-primary" %>
+  <% end %>
+</div>

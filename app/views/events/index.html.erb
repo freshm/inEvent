@@ -1,0 +1,37 @@
+<div class="row">
+</div>
+<div class="row">
+  <div class="col-md-8">
+
+    <% @events.each do |event| %>
+
+      <div class="event-card row">
+        <div class="col-md-2">
+          <%= link_to((image_tag(event.picture.thumb, style: "margin-top: 1px;") if event.picture?), event_path(event)) if event.picture.thumb %>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-12"><h2><%= link_to event.title, event_path(event) %></h2></div>
+          <div class="col-md-3"><%= l(event.appointment.to_date, format: :normal) unless event.appointment.nil? %></div>
+          <div class="col-md-3"><%= l(event.appointment, format: :normal) unless event.appointment.nil? %></div>
+          <div class="col-md-3"><%= event.location %></div>
+          <br />
+          <div class="col-md-12">
+            <% if event.max_participants == 0 || event.max_participants == nil %>
+              <p>Unbeschränkt</p>
+            <% else %>
+              <%= event.max_participants %>
+            <% end %>
+          </div>
+        </div>
+        </div>
+        
+
+    <% end %> 
+  </div>
+  <div class="col-md-offset-1 col-md-3 sidebar">
+    <p>asda</p>
+    <p>asda</p>
+    <p>asda</p>
+    <p>asda</p>
+  </div>   
+</div>

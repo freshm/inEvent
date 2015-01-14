@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag(@event.picture.resized, height: 275) if @event.picture? %>
+  </div>
+  <div class="col-md-9">
+    <% unless current_user == @event.creator %>
+    <div style="float: right" class="buttons">
+      <button id="participate" class="btn btn-info">Teilnehmen</button><br><br>
+      <button id="mark" class="btn btn-info">Vormerken</button>
+    </div>
+    <% end %>
+    <div class="col-md-9"><h2><%= @event.title %></h2></div>
+    <br /><br /><br /><br /><br /><br />
+    <div class="col-md-3"><%= l(@event.appointment.to_date, format: :normal) %></div>
+    <div class="col-md-3"><%= l(@event.appointment, format: :normal) unless @event.appointment.nil? %></div>
+    <div class="col-md-3"><%= @event.location %></div>
+    <br /><br />
+    <div class="col-md-12">
+      <% if @event.max_participants == 0 || @event.max_participants == nil %>
+      <p>Unbeschränkt</p>
+      <% else %>
+      <%= @event.max_participants %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-4 event-bottom">
+    <p style="margin-top: 10px;"><%= @event.description %></p>
+  </div>
+  <div class="col-md-4 event-bottom ">
+    
+  </div>
+  <div class="col-md-4 event-bottom">
+    <h3 class="center_text participant-head">Teilnehmer</h3>
+    <% @event.subscribed_events.where(participate: true).each do |s| %>
+      <p><%= link_to User.find(s.user_id).fullname, user_show_path(s.user_id) %></p>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<script>
+  event_id = <%= params[:id] %>;
+</script>

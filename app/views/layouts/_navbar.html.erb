@@ -1,0 +1,30 @@
+<nav id="top-navbar" class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/"><img src="/logo_final_white.jpg" alt="inEvent Logo" style="margin-top: -17px; margin-left: -16px;"></a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Event suchen", events_path %></li>
+      <li><%= link_to "Event erstellen", new_event_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% unless current_user %>
+        <li><%= link_to "Registrieren", new_user_registration_path %></li>
+        <li class="divider-vertical"></li>
+        <li><%= link_to "Anmelden", new_user_session_path %></li>
+      <% else %>
+        <p class="navbar-text"><%= link_to current_user.email, user_show_path(current_user), class: "nav-link" %></p>
+        <li><%= link_to "(Logout)", destroy_user_session_path, :method => :delete, id: "logout" %></li>
+      <% end %>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>

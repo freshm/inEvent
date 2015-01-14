@@ -1,0 +1,83 @@
+<div class="row">
+  
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+     <div class="col-md-2">
+      <div class="form-group"><%= f.file_field :avatar, placeholder: "Profilbild", style: "margin-left: -25px; margin-top: 25px;" %>
+     </div>
+    </div>
+    <div class="col-md-10">
+      <h2>Mein Profil</h2>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= f.label :firstname, "Vorname", class: "sr-only" %>
+        <div class="input-group">
+          <%= f.text_field :firstname, class: "form-control", placeholder: "Vorname",autofocus: true%>
+          <div class="input-group-addon  ie-lock"><i id="firstname" class="fa <%= @user.firstname_private ? 'fa-lock' : 'fa-unlock' %>"></i></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :lastname, "Nachname", class: "sr-only" %>
+       <div class="input-group">
+        
+        <%= f.text_field :lastname, class: "form-control", placeholder: "Nachname"%>
+        <div class="input-group-addon  ie-lock"><i id="lastname" class="fa <%= @user.lastname_private ? 'fa-lock' : 'fa-unlock' %>"></i></div>
+       </div>
+        
+      </div>
+      
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="input-group">
+        
+              <%= f.text_field :city, class: "form-control", placeholder: "Wohnort"%>
+              <div class="input-group-addon  ie-lock"><i id="city" class="fa <%= @user.city_private ? 'fa-lock' : 'fa-unlock' %>"></i></div>
+             </div>
+          </div>
+          <div class="col-md-4">
+            <div class="input-group">
+        
+              <%= f.text_field :zipcode, class: "form-control", placeholder: "Postleitzahl"%>
+              <div class="input-group-addon  ie-lock"><i id="zipcode" class="fa <%= @user.zipcode_private ? 'fa-lock' : 'fa-unlock' %>"></i></div>
+             </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :birthday, "Birthday", class: "sr-only" %>
+       <div class="input-group">
+        
+        <%= f.date_field :birthday, class: "form-control", placeholder: "Geburtstag", id: "datepicker"%>
+        <div class="input-group-addon ie-lock"><i id="birthday" class="fa <%= @user.birthday_private ? 'fa-lock' : 'fa-unlock' %>"></i></div>
+       </div>
+        
+      </div>
+
+      <div class="form-group">
+        <%= f.label :gender, "Geschlecht:", style: "font-weight: bold;" %> 
+        <span class="ie-lock">
+          <i id="gender" style="padding-left: 10px; font-size: 20px;" class="fa <%= @user.gender_private ? 'fa-lock' : 'fa-unlock' %>"></i> 
+        </span>
+        <br />
+        <%= f.radio_button :gender, :male %>
+        <%= f.label :gender, "Männlich", value: "Männlich" %><br /> 
+        <%= f.radio_button :gender, :female %>
+        <%= f.label :gender, "Weiblich", value: "Weiblich" %>
+      </div>
+      
+      <div class="input-group">
+        <%= f.text_area :interests, placeholder: "Interessen", class: "form-control", rows: 2 %>
+        <div class="input-group-addon ie-lock"><i id="interests" class="fa <%= @user.interests_private ? 'fa-lock' : 'fa-unlock' %>"></i></div>
+      </div>
+
+      <div class="actions">
+        <%# request.referer %>
+        <%= f.submit "Speichern", class: "btn btn-primary" %>
+        <%= link_to "Abbrechen", :back, class: "btn btn-info cancel" %>
+      </div>
+    <% end %>
+  </div>
+</div>

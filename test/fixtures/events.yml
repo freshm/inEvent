@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  appointment: 2014-12-18 15:52:50
+  location: MyString
+  private: false
+  description: MyText
+
+two:
+  title: MyString
+  appointment: 2014-12-18 15:52:50
+  location: MyString
+  private: false
+  description: MyText

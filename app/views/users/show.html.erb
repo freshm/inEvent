@@ -1,0 +1,43 @@
+<div  class="row">
+	<div class="col-md-2">
+	<%= image_tag(@user.avatar.profile, style: "margin-top: 20px;") %>
+		<% if @user.image_url.blank? %>
+
+		<% else %>	
+			<img src="<%= @user.image_url %>" />
+		<% end %>
+	</div>
+	<div class="col-md-10">
+		<h2 class="profile_name">
+			<%= display_name %>
+			<% if current_user == @user %>
+				<%= link_to "", edit_user_registration_path(@user), class: "fa fa-edit" %>
+			<% elsif current_user %>
+				<%= link_to "", "#", class: "fa fa-envelope-o", id: "send-message" %>
+			<% end %>
+		</h2>
+		
+		<div class="user_information">
+		    <% unless @user.gender_private %>
+			<label for="gender">Geschlecht:</label>
+			<span id="gender" name="gender"><%= display_gender %></span>
+			<br />
+			<% end %>
+			<% unless @user.birthday_private %>
+			<label for="age">Alter:</label>
+			<span id="age" name="age"><%= display_age %></span>
+			<br />
+			<% end %>
+			<% unless @user.city_private %>
+			<label for="location">Wohnort:</label>
+			<span id="location" name="location"><%= display_city %></span>
+			<br />
+			<% end %>
+			<% unless @user.interests_private %>
+			<label for="interests">Interessen:</label><br/>
+			<span id="interests" name="interests" style="margin-left: -5px;"><%= display_interests %></span>
+			<% end %>
+		</div>
+	</div>
+
+</div>
