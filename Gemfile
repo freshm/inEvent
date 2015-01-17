@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.1.5"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -39,3 +39,7 @@ gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 
 gem 'rails_12factor', group: :production
+
+gem "font-awesome-rails"
+
+gem 'acts-as-taggable-on', '~> 3.4'

@@ -1,6 +1,6 @@
 module UsersHelper
 	def display_name
-		(current_user == @user) ? "Mein Profil" : @user.fullname
+		(current_user == @user) ? "Mein Profil (#{@user.fullname})" : @user.fullname
 	end
 
 	def display_gender
@@ -17,7 +17,7 @@ module UsersHelper
     end
   
     def display_interests
-      @user.interests.blank? ? "Keine" : @user.interests  
+      @user.interests.blank? ? "Keine Angaben" : @user.interests  
     end
   
     private

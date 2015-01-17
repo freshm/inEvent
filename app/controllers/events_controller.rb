@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, except: :index
+  before_filter :authenticate_user!, except: [:index, :show]
 
   def index
     @events = Event.all
+    @tags = Event.tag_counts_on(:tags)
   end
 
   def show
@@ -90,6 +91,13 @@ class EventsController < ApplicationController
       
     
   end
+  
+  def add_tag
+    #binding.pry
+    event = Event.find(params[:event])
+    event.tag_list.add(params[:tag_text])
+    event.save
+  end
 
   helper_method :title
   private
@@ -99,6 +107,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit :title, :appointment, :location, :max_participants, :description, :private, :picture
+    params.require(:event).permit :title, :appointment, :location, :max_participants, :description, :private, :picture, :tag_list
   end
 end

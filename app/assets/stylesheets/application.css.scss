@@ -19,6 +19,61 @@
  *= require_self
  */
 
+@import "font-awesome";
+
+html, body {
+  position: relative;
+  height: 95%;
+  margin-bottom: 60px;
+}
+
+.css1 { font-size: 0.6em; }
+.css2 { font-size: 1.0em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.8em; }
+
+#chat-input {
+  margin-left: 5px;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+#event-index {
+  margin-top: -20px;
+  background-image: url("/test.png");
+  background-repeat:no-repeat;
+  height:160px;width:100%;
+  
+  a {
+    color: #0B5DA4;
+    text-decoration: underline;
+  }
+}
+
+#chat {
+  list-style: none;
+}
+
+#links {
+    
+    position: relative;
+    top: 25%;
+    float: right;
+    margin-right: -350px;
+
+    a {
+      padding: 0 5px;
+    }
+  }
+
+.container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+
 .nav-link {
   color: white;
   text-decoration: underline;
@@ -35,8 +90,9 @@
  }
 
 .landing-text {
-  color: white;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  padding-top: 15%; background-color: rgba(230, 230, 230, 0.5);
+  color: rgb(42, 42, 42);
+  //text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   
   h1 {
     font-size: 62px;
@@ -48,11 +104,18 @@
   }
 }
 
-#footer {position: relative;
+.push {
+  height: 4em;
+  clear: both;
+}
+
+#footer {
+  clear: both;
+  position: absolute !important;
   background-color: white;
-  position: relative;
+  position: absolute;
   bottom: 0;
-  height: 35px;
+  height: 32px;
   width: 100%;
   border-color: #999;
   border-top-style: solid;
@@ -92,10 +155,16 @@
   border-color: #999;
   border-width: 1px;
   border-style: solid;
-  height: 200px;
+  height: 400px;
+  
+  hr {
+    border-color: #444;
+  }
 }
 
 #authentication_form {
+  background-color:white;
+  margin-top: 25px;
 	padding-top: 3px;
 	padding-bottom: 30px;
 	border-style: solid;

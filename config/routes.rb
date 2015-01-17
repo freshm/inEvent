@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   post "/events/participate" => "events#participate"
   post "/events/mark" => "events#mark_event"
+  post "/events/add_tag" => "events#add_tag"
   get "/users/:id" => "users#show", as: "user_show"
   post '/user/privatise' => "users#privatise"
 

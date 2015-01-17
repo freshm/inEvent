@@ -4,10 +4,13 @@
   <div class="col-md-8">
 
     <% @events.each do |event| %>
-
       <div class="event-card row">
         <div class="col-md-2">
+          <% unless event.picture.blank? %>
           <%= link_to((image_tag(event.picture.thumb, style: "margin-top: 1px;") if event.picture?), event_path(event)) if event.picture.thumb %>
+          <% else %>
+          <img src="event_default.jpg" alt="Default Event Picture">
+          <% end %>
         </div>
         <div class="col-md-10">
           <div class="col-md-12"><h2><%= link_to event.title, event_path(event) %></h2></div>
@@ -19,19 +22,21 @@
             <% if event.max_participants == 0 || event.max_participants == nil %>
               <p>Unbeschränkt</p>
             <% else %>
-              <%= event.max_participants %>
+              <%= "" + event.subscribed_events.count.to_s + "/" + event.max_participants.to_s + " Teilnehmer " %>
             <% end %>
           </div>
         </div>
         </div>
-        
-
-    <% end %> 
+      <% end %>
   </div>
   <div class="col-md-offset-1 col-md-3 sidebar">
-    <p>asda</p>
-    <p>asda</p>
-    <p>asda</p>
-    <p>asda</p>
+    <div class="tag_cloud" style="border-radius: 1px; border-color: #000;border-width: 1px;
+           border-style: solid;margin: 10px 0;padding: 1px 3px;background-color: #d7d7d7;">
+      <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+        <span class="<%= css_class %>"><%= tag.name %></span>
+      <% end %>
+    </div>
+    <img src="/Google_map-2.jpg" alt="google-map" style="width: 258px;
+margin-bottom: 10px;">
   </div>   
 </div>

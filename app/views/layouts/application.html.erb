@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html data-ng-app="app">
 <head>
   <title>inEvent <%= render_subtitle %></title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -14,7 +15,7 @@
       });
   </script>
 </head>
-<% if request.original_url == root_url %>
+<% if request.original_url == root_url || request.original_url == new_user_registration_url || request.original_url == new_user_session_url %>
 <body id="landing_page">
 <% else %>
 <body>
@@ -30,16 +31,30 @@
       <p class="center_text"><%= notice %></p>
     </div>
   <% elsif alert %>
+   <div class="alert alert-box alert-warning">
     <button type="button" class="close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span>
         <span class="sr-only">Close</span>
       </button>
       <p class="center_text"><%= alert %></p>
+    </div>
+  <% end %>
+  
+  <% if request.original_url == events_url %>
+    <div id="event-index">
+     <div style="width: 30%; position:relative; left: 35%; top: 140px; background-color: rgba(190, 190, 190, 0.8);">
+      <div class="row">
+       <input type="text" class="form-control" style="display: inline; width: 42%;" placeholder="Stichwort, ..">
+       <span style="width: 58%;">innerhalb <a href="#">20</a> km von <a href="#">Stuttgart</a></span>
+       </div>
+     </div>
+    </div>
   <% end %>
 
  
 		<div class="container">
 			<%= yield %>
+			<div class="push"></div>
 		</div>
 
     <%= render 'layouts/footer' %>
@@ -48,6 +63,8 @@
 	<%= javascript_include_tag 'angular_components' %>
 	<script>
       current_user_id = <%= current_user.id if current_user %>
+      current_user_firstname = "<%= current_user.firstname.blank? ? 'Unbekannt' : current_user.firstname if current_user%>"
+      current_user_fullname = "<%= current_user.fullname.blank? ? 'Unbekannt' : current_user.fullname if current_user %>"
     </script>
 </body>
 </html>
