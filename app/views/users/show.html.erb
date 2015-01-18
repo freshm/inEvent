@@ -1,19 +1,14 @@
 <div  class="row">
 	<div class="col-md-2">
-	<%= image_tag(@user.avatar.profile, style: "margin-top: 20px;") %>
-		<% if @user.image_url.blank? %>
-
-		<% else %>	
-			<img src="<%= @user.image_url %>" />
-		<% end %>
+	<%= image_tag(@user.avatar.profile, style: "margin-top: 20px;border-style: solid;border-width: 1px;border-color: #d6d6d6;  ") %>
 	</div>
 	<div class="col-md-10">
 		<h2 class="profile_name">
 			<%= display_name %>
 			<% if current_user == @user %>
-				<%= link_to "", edit_user_registration_path(@user), class: "fa fa-edit" %>
+				<%= link_to "", edit_user_registration_path(@user), class: "fa fa-edit", title: "Benutzer editieren" %>
 			<% elsif current_user %>
-				<%= link_to "", "#", class: "fa fa-envelope-o", id: "send-message" %>
+				<%= link_to "", "#", class: "fa fa-envelope-o", id: "send-message", title: "Nachricht an Benutzer schicken" %>
 			<% end %>
 		</h2>
 		

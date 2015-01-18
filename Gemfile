@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.1.5"
+#ruby "2.1.5"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -12,8 +12,8 @@ platform :jruby do
 end
 
 platform :ruby do
-  gem 'pg'
-  #gem 'sqlite3'
+  #gem 'pg'
+  gem 'sqlite3'
 end
 
 gem 'sass-rails', '~> 4.0.3'

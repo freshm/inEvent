@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :created_events, foreign_key: "creator_id", class: Event
 
   def self.from_omniauth(auth)
-  	binding.pry
+  	#binding.pry
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider
         user.uid = auth.uid

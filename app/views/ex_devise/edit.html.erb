@@ -4,10 +4,10 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
      <div class="col-md-2">
       <% unless @user.avatar.blank? %>
-      <%= image_tag(@user.avatar.profile, style: "margin-top: 20px;") %>
+      <%= image_tag(@user.avatar.profile, style: "margin-top: 20px;border-style: solid;border-width: 1px;border-color: #d6d6d6;") %>
       <a href="#">Löschen</a>
       <% else %>
-      <img src="/default-avatar.png" alt="">
+      <img src="/default-avatar.png" alt="Default Avatar" style="margin-top: 20px;border-style: solid;border-width: 1px;border-color: #d6d6d6;">
       <% end %>
       <div class="form-group"><%= f.file_field :avatar, placeholder: "Profilbild", style: "margin-left: -25px; margin-top: 25px;" %>
      </div>
@@ -75,6 +75,7 @@
       </div>
       
       <div class="input-group">
+       <label for="user_interests">Interessen</label>
         <%= f.text_area :interests, placeholder: "Interessen", class: "form-control", rows: 2 %>
         <div class="input-group-addon ie-lock"><i id="interests" class="fa <%= @user.interests_private ? 'fa-lock' : 'fa-unlock' %>"></i></div>
       </div>
